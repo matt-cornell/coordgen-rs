@@ -22,7 +22,6 @@ fn main() {
         .define("COORDGEN_BUILD_SHARED_LIBS", "OFF")
         .define("CMAKE_BUILD_TYPE", "Release")
         .define("CMAKE_INSTALL_LIBDIR", "lib")
-        .cxxflag("-Wno-error=unused-but-set-variable")
         .uses_cxx11()
         .build();
 
