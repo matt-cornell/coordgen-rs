@@ -1,8 +1,15 @@
 use cmake::Config;
 
 fn main() {
-    #[cfg(not(target_family = "unix"))]
-    compile_error!("this only supports unix systems");
+    // #[cfg(not(target_family = "unix"))]
+    // compile_error!("this only supports unix systems");
+
+    // fix windows issues
+    std::fs::write(
+        "coordgenlibs/CoordgenConfig.hpp",
+        "#define EXPORT_COORDGEN\n",
+    )
+    .unwrap();
 
     #[cfg(target_os = "macos")]
     let cpp_lib = "c++";
@@ -15,7 +22,6 @@ fn main() {
         .define("COORDGEN_BUILD_SHARED_LIBS", "OFF")
         .define("CMAKE_BUILD_TYPE", "Release")
         .define("CMAKE_INSTALL_LIBDIR", "lib")
-        .define("STATIC_COORDGEN", "")
         .cxxflag("-Wno-error=unused-but-set-variable")
         .uses_cxx11()
         .build();
