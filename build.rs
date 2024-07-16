@@ -6,11 +6,12 @@ fn main() {
     // compile_error!("this only supports unix systems");
 
     // fix windows issues
-    std::fs::write(
-        "coordgenlibs/CoordgenConfig.hpp",
-        "#define EXPORT_COORDGEN\n",
-    )
-    .unwrap();
+    // std::fs::write(
+    //     "coordgenlibs/CoordgenConfig.hpp",
+    //     "#define EXPORT_COORDGEN\n",
+    // )
+    // .unwrap();
+    std::fs::copy("modified-config.hpp", "coordgenlibs/CoordgenConfig.hpp").unwrap();
 
     #[cfg(target_os = "macos")]
     let cpp_lib = "c++";
