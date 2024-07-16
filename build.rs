@@ -1,5 +1,6 @@
 use cmake::Config;
 
+#[allow(unused_variables)]
 fn main() {
     // #[cfg(not(target_family = "unix"))]
     // compile_error!("this only supports unix systems");
@@ -32,5 +33,6 @@ fn main() {
     );
     println!("cargo:rustc-link-lib=static=coordgen");
     println!("cargo:rustc-link-lib=static=wrappedcoordgen");
+    #[cfg(not(target_family = "windows"))]
     println!("cargo:rustc-link-lib={}", cpp_lib);
 }
