@@ -17,6 +17,7 @@ fn main() {
     let cpp_lib = "stdc++";
 
     let dst = Config::new(".")
+        .define("COORDGEN_RIGOROUS_BUILD", "OFF")
         .define("COORDGEN_BUILD_TESTS", "OFF")
         .define("COORDGEN_BUILD_EXAMPLE", "OFF")
         .define("COORDGEN_BUILD_SHARED_LIBS", "OFF")
