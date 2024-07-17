@@ -35,6 +35,9 @@ fn main() {
         "cargo:rustc-link-search=native={}",
         dst.join("lib").display()
     );
+    #[cfg(target_env = "msvc")]
+    println!("cargo:rustc-link-lib=dynamic=coordgen");
+    #[cfg(not(target_env = "msvc"))]
     println!("cargo:rustc-link-lib=static=coordgen");
     println!("cargo:rustc-link-lib=static=wrappedcoordgen");
     #[cfg(not(target_env = "msvc"))]
