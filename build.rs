@@ -24,6 +24,7 @@ fn main() {
         .define("COORDGEN_BUILD_EXAMPLE", "OFF")
         .define("CMAKE_BUILD_TYPE", "Release")
         .define("CMAKE_INSTALL_LIBDIR", "lib")
+        .define("CMAKE_INSTALL_BINDIR", "lib")
         .uses_cxx11();
 
     #[cfg(not(target_env = "msvc"))]
